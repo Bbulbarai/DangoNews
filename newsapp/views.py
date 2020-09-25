@@ -58,7 +58,7 @@ def torf(request, pk):
     email = User_model.objects.filter(id=pk).first()
     send_mail(
             'django bulbar',
-            email.lastname + ' таны нэвтрэх нэр бол ' + name + '. таны нууц үг бол ' + password,
+            email.lastname + ' таны нэвтрэх нэр бол1 ' + name + '. таны нууц үг бол ' + password,
             'bbulbarai3@gmail.com',
             [email.email],
             fail_silently=False)
