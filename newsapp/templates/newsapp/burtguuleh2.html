@@ -1,0 +1,42 @@
+{% extends 'newsapp/base.html' %}
+
+	{% block content %}
+  <section id="documenter_cover">
+            <h1>Жагсаалт</h1>
+            <table class="table table-striped">
+                <thead>
+                    <div class=check>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">ID</th>
+                    <th scope="col">Last</th>
+                    <th scope="col">First</th>
+                    <th scope="col">email</th>
+                    <th scope="col">T or F</th>
+                    {% comment %} <th scope="col">username</th>
+                    <th scope="col">password</th> {% endcomment %}
+                  </tr>
+                  {% for usermodel in User_models %}
+                  <form method="POST">
+                    {% csrf_token %}
+                    <!-- {% if usermodel.check } -->
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">{{ usermodel.id }}</th>
+                        <th scope="col">{{ usermodel.firstname }}</th>
+                        <th scope="col">{{ usermodel.lastname }}</th>
+                        <th scope="col">{{ usermodel.email }}</th>
+                        <th scope="col">{{ usermodel.check }}</th>
+                        {% comment %} <th scope="col"><input type="text" name="name" autocomplete="off"/></th>
+                        <th scope="col"><input type="password" name="password" autocomplete="off"/></th> {% endcomment %}
+                        <th scope="col">{{ form }}</th>
+                        <th scope="col"><a class="btn btn-primary" href="/torf/{{usermodel.id}}/">YES</a>
+                    </tr>
+                    <!-- {% endif } -->
+                  </form>
+                  {% endfor %}
+                </div>
+                </thead>
+              </table>
+		<section/>
+	{% endblock%}

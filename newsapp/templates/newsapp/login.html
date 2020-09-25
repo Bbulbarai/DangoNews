@@ -1,0 +1,14 @@
+{% extends 'newsapp/base.html' %}
+
+	{% block content %}
+
+	<div id="documenter_content">
+        <section id="documenter_cover">
+        <h1>Login</h1>
+        <form method="POST">
+            <input name="name" type="text"/>
+            <input name="password" type="text"/>
+            {% csrf_token %}
+            <input type="submit">
+	</div>
+	{% endblock%}

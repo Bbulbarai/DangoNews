@@ -1,0 +1,29 @@
+{% extends 'newsapp/base.html' %}
+
+	{% block content %}
+	 <section id="documenter_cover">
+		<h1>Нүүр хуудас</h1>
+		<!-- <div style="text-align: margin-top:100px  center">
+			<input type="date">
+			{{ example_form.my_date_field }}
+		</div> -->
+
+		{% for News in Newss %}
+		<div class="d-flex justify-content-center">
+			<div class="card" style="width: 24rem;">
+				<div class="card-body">
+				<h5 class="card-title"><b>{{News.name}}</b></h5></b>
+				<img class="card-img-top w-50 5-50"  src="{{News.image.url}}"><br>
+				<p class="card-text"> {{News.more}}<br></p>
+				<a href="/news2/{{News.id}}/" class="btn btn-primary">Дэлгэрэнгүй<a>
+				</div>
+			</div>
+		</div>
+			<!-- {{News.name}}<br>
+			{{News.date_created}}<br>
+			{{News.more}}<br> -->
+			<!-- <img width="190px" src="{{News.image.url}}"><br> -->
+			<!-- <a href="/news2/{{News.id}}/">Дэлгэрэнгүй</a> -->
+		{% endfor %}
+	</div>
+	{% endblock%}

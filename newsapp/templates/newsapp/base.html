@@ -1,0 +1,70 @@
+{% load static %}
+<!doctype html>
+<!--[if IE 6 ]><html lang="en-us" class="ie6"> <![endif]-->
+<!--[if IE 7 ]><html lang="en-us" class="ie7"> <![endif]-->
+<!--[if IE 8 ]><html lang="en-us" class="ie8"> <![endif]-->
+<!--[if (gt IE 7)|!(IE)]><!-->
+<html lang="en-us"><!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<title>Kingster - University, School HTML Template</title>
+
+	<meta name="description" content="A Perfect HTML5 Template for your site with unlimited options, colors and pre built pages to make your work easier, 2 different portfolio pages, 4 different homepages and much more..">
+	<meta name="author" content="max-themes">
+	<meta name="copyright" content="max-themes">
+	<meta name="generator" content="Documenter v2.0 http://rxa.li/documenter">
+	<meta name="date" content="2013-05-30T00:00:00+02:00">
+	<link rel="stylesheet" href="{% static 'assets/css/documenter_style.css' %}" media="all">
+	<link type="text/css" rel="stylesheet" href="{% static 'assets/css/SyntaxHighlighter.css' %}"></link>
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,700,800' rel='stylesheet' type='text/css'>
+	<link href="{% static 'assets/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet">
+
+	{% comment %} <script src="assets/js/jquery.js"></script>
+	<script src="assets/js/jquery.scrollTo.js"></script>
+	<script src="assets/js/jquery.easing.js"></script>
+	<script>document.createElement('section');var duration='500',easing='swing';</script>
+	<script src="assets/js/script.js"></script> {% endcomment %}
+</head>
+<body>
+	<div id="documenter_sidebar">
+		<a href="#documenter_cover" id="documenter_logo"></a>
+		<ul id="documenter_nav">
+
+			{% comment %} <li><a class="current" href="{% url 'home' %}">Нүүр хуудас</a></li> {% endcomment %}
+            <li><a href="{% url 'news' %}">Нүүр хуудас</a></li>
+			<li><a href="{% url 'burtguuleh' %}">Бүртгэл</a></li>
+			<li><a href="{% url 'burtguuleh2' %}">Жагсаалт</a></li>
+			<li><a href="{% url 'login' %}">Нэвтрэх</a></li>
+			<li><a href="{% url 'upload' %}">Upload</a></li>
+			{% comment %} <li><a href="#sources_and_credits" title="Sources and Credits">Sources and Credits</a></li> {% endcomment %}
+		</ul>
+		<div id="documenter_copyright">GeoNews 2020<br></div>
+	</div>
+
+    <div class="container" id="documenter_content">
+        <section id="documenter_cover">
+            {% block content%}
+
+            {%endblock%}
+        </section>
+
+    <section id="sources_and_credits">
+
+        </div>
+        {% comment %} <script language="javascript" src="assets/js/shCore.js"></script>
+        <script language="javascript" src="assets/js/shBrushCss.js"></script>
+        <script language="javascript" src="assets/js/shBrushXml.js"></script>
+        <script language="javascript" src="assets/js/shBrushJScript.js"></script> {% endcomment %}
+
+        <style type="text/css" media="screen">
+            p, table, hr, .box { padding-bottom:15px; }
+            .box p { margin-bottom:10px; }
+            pre, code{ 
+            font-size: 14px;
+            margin:1.5em 0;
+            white-space:pre;
+            }
+        </style> 
+    </div>
+</body>
+</html>

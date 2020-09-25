@@ -1,0 +1,13 @@
+
+{% extends 'newsapp/base.html' %}
+
+	{% block content %}
+        {% for News2 in Newss2 %}
+            {{News2.name}}
+            {{News2.date_created}}
+            {{News.more}}
+            <img width="360px" src="{{News2.image.url}}">
+            {{News2.detailed | safe}}
+        {% endfor %}
+
+	{% endblock%}

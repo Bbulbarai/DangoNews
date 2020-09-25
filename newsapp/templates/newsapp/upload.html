@@ -1,0 +1,10 @@
+
+{% extends 'newsapp/base.html' %}
+
+        {% block content %}
+        <h2>upload</h2>
+        <form>
+            <input type="file" onchange="runImage(this)"/>
+            <input type="submit" value="Save"/>
+        </form>
+        {% endblock %}
