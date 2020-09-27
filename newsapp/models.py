@@ -30,3 +30,8 @@ class User_model(models.Model):
 class Login(models.Model):
     name = models.CharField(max_length=200, null=True)
     password = models.CharField(max_length=8, null=True)
+
+class Event(models.Model):
+    title = models.CharField(max_length=200, unique=True)
+    description = models.TextField()
+    date_created = models.DateTimeField(auto_now_add=True)

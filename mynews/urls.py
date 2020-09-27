@@ -32,5 +32,7 @@ urlpatterns = [
     # path('news/', views.news, name='news'),
     path('news2/<int:id>/', views.news2, name='news2'),
     path('upload/', views.upload, name='upload'),
+    path('calendar/', views.calendar, name='calendar'),
+    path('calendar/event/', views.calendar2, name='events'),
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

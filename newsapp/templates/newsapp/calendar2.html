@@ -1,0 +1,25 @@
+{% extends 'newsapp/base.html' %}
+
+	{% block content %}
+     <h1>Арга хэмжээ</h1>
+    	 <div style="text-align: margin-top: 100px">
+			<input type="date">
+			{{ example_form.my_date_field }}
+		</div>
+         <form method="POST">
+                    {% csrf_token %}
+                    <tr>
+                        <th scope="col">{{ eventmodel.id }}</th>
+                        <th scope="col">{{ eventmodel.tittle }}</th>
+                        <th scope="col">{{ eventmodel.description }}</th>
+                        <th scope="col">{{ form }}</th>
+                        <th scope="col"><a class="btn btn-primary"  href="calendar.html">Save</a>
+                    </tr>
+         </form>
+    {% endblock%}
+
+
+
+
+
+

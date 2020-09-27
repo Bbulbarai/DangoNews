@@ -1,0 +1,10 @@
+{% extends 'newsapp/base.html' %}
+
+	{% block content %}
+    <h1>Календарь</h1>
+     <form method="POST">
+            {{form}}
+            {% csrf_token %}
+          <a class="btn btn-primary" href="event/">Event</a>
+    </form>
+    {% endblock%}
