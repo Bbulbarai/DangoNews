@@ -1,7 +1,7 @@
 
 from django.shortcuts import render, redirect
-from .forms import hereglegch_burtgeh
-from .models import  User_model, News
+from .forms import hereglegch_burtgeh, event_add
+from .models import  User_model, News, Event
 from django.core.mail import send_mail
 from django.http import HttpResponse
 # from .forms import UploadFileForm
@@ -97,4 +97,22 @@ def calendar(request):
     return render(request,  'newsapp/calendar.html')
 
 def calendar2(request):
-    return render(request, 'newsapp/calendar2.html')
+     if request.method == "POST":
+         date = request.POST.get('date')
+         form = event_add(request.POST)
+         if form.is_valid():
+            print(form)
+            form.save()
+            title = form.cleaned_data['title']
+            description = form.cleaned_data['description']
+            print(title, description)
+
+     form = event_add()
+     return render(request, 'newsapp/calendar2.html', {'form':form})
+
+
+# def event(request):
+#     obj = event.objects.all()
+#     if request.method == 'POST':
+#         form = event_add(request.POST)
+#     return render(request,  'newsapp/calendar2.html', {'form':form})

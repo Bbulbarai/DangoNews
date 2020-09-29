@@ -35,3 +35,4 @@ class Event(models.Model):
     title = models.CharField(max_length=200, unique=True)
     description = models.TextField()
     date_created = models.DateTimeField(auto_now_add=True)
+    date = models.DateTimeField(null=True)

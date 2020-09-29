@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'newsapp',
     'ckeditor',
     'ckeditor_uploader',
+
 ]
 
 CKEDITOR_UPLOAD_PATH = "ckeditor_uploads/"

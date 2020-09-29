@@ -2,20 +2,25 @@
 
 	{% block content %}
      <h1>Арга хэмжээ</h1>
-    	 <div style="text-align: margin-top: 100px">
+
+         <form method="POST">
+            {% csrf_token %}
+            {{ form }}
+            <input type="date" name="date" id="id_date"/>
+            {% comment %} <a class="btn btn-primary" href="/calendar/">Save</a> {% endcomment %}
+            <button type="submit">Save</button>
+         </form>
+      {% comment %} <script>
+      $(document).ready(function() {
+         if($(input).attr('name') == 'date'){
+            $(this).attr('type', 'date')
+         }
+      });
+      </script> {% endcomment %}
+      {% comment %} <div style="text-align: margin-top: 100px">
 			<input type="date">
 			{{ example_form.my_date_field }}
-		</div>
-         <form method="POST">
-                    {% csrf_token %}
-                    <tr>
-                        <th scope="col">{{ eventmodel.id }}</th>
-                        <th scope="col">{{ eventmodel.tittle }}</th>
-                        <th scope="col">{{ eventmodel.description }}</th>
-                        <th scope="col">{{ form }}</th>
-                        <th scope="col"><a class="btn btn-primary"  href="calendar.html">Save</a>
-                    </tr>
-         </form>
+		</div> {% endcomment %}
     {% endblock%}
 
 

@@ -1,10 +1,54 @@
 {% extends 'newsapp/base.html' %}
-
+{% load static %}
+<!doctype html>
 	{% block content %}
     <h1>Календарь</h1>
      <form method="POST">
-            {{form}}
-            {% csrf_token %}
-          <a class="btn btn-primary" href="event/">Event</a>
+        {% csrf_token %}
+        {{form}}
+        <a class="btn btn-primary" href="event/">Event</a>
     </form>
+    <link type="text/css" rel="stylesheet" href="{% static 'assets/css/calendar.css' %}" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/calendarize"></script>
+<script src="https://unpkg.com/sublet"></script>
+
+  <div class="input">
+    <label for="month">Month:</label>
+    <select id="month">
+      <option value="0">January</option>
+      <option value="1">February</option>
+      <option value="2">March</option>
+      <option value="3">April</option>
+      <option value="4">May</option>
+      <option value="5" selected>June</option>
+      <option value="6">July</option>
+      <option value="7">August</option>
+      <option value="8">September</option>
+      <option value="9">October</option>
+      <option value="10">November</option>
+      <option value="11">December</option>
+    </select>
+     <input id="year" type="number" min="1900" max="2100" step="1" value="2019">
+  </div>
+  <div class="input">
+    <label for="offset">Week Start:</label>
+     <select id="offset">
+      <option value="0" selected>Sunday</option>
+      <option value="1">Monday</option>
+      <option value="2">Tuesday</option>
+      <option value="3">Wednesday</option>
+      <option value="4">Thursday</option>
+      <option value="5">Friday</option>
+      <option value="6">Saturday</option>
+    </select>
+  </div>
+
+<div id="calendar">
+  <div class="labels"></div>
+  <div class="dates"></div>
+</div>
+
+<script src="{% static 'assets/js/cal.js' %}"></script>
+</html
     {% endblock%}
