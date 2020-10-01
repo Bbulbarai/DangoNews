@@ -1,10 +1,14 @@
 {% extends 'newsapp/base.html' %}
 
 	{% block content %}
-	<h1>Бүртгүүлэх</h1>
-        <form method="POST">
+	{% comment %} <h1>Бүртгүүлэх</h1> {% endcomment %}
+        <form  class="form-center" method="POST">
             {{form}}
             {% csrf_token %}
-        <input type="submit">
+        <input type="submit" value="Илгээх" class="button">
     </form>
+    
+    <script>
+    {% comment %} alert("hoho") {% endcomment %}
+    </script>
 	{% endblock%}

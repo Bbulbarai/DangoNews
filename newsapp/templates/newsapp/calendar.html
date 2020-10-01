@@ -6,48 +6,73 @@
      <form method="POST">
         {% csrf_token %}
         {{form}}
-        <a class="btn btn-primary" href="event/">Event</a>
     </form>
-    <link type="text/css" rel="stylesheet" href="{% static 'assets/css/calendar.css' %}" />
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap" rel="stylesheet">
-<script src="https://unpkg.com/calendarize"></script>
-<script src="https://unpkg.com/sublet"></script>
-
-  <div class="input">
-    <label for="month">Month:</label>
-    <select id="month">
-      <option value="0">January</option>
-      <option value="1">February</option>
-      <option value="2">March</option>
-      <option value="3">April</option>
-      <option value="4">May</option>
-      <option value="5" selected>June</option>
-      <option value="6">July</option>
-      <option value="7">August</option>
-      <option value="8">September</option>
-      <option value="9">October</option>
-      <option value="10">November</option>
-      <option value="11">December</option>
-    </select>
-     <input id="year" type="number" min="1900" max="2100" step="1" value="2019">
-  </div>
-  <div class="input">
-    <label for="offset">Week Start:</label>
-     <select id="offset">
-      <option value="0" selected>Sunday</option>
-      <option value="1">Monday</option>
-      <option value="2">Tuesday</option>
-      <option value="3">Wednesday</option>
-      <option value="4">Thursday</option>
-      <option value="5">Friday</option>
-      <option value="6">Saturday</option>
-    </select>
-  </div>
-
-<div id="calendar">
-  <div class="labels"></div>
-  <div class="dates"></div>
-</div>
+    <link type="text/css" rel="stylesheet" href="{% static 'assets/css/calendar.css' %}"/>
+<!DOCTYPE html>
+<html lang='en'>
+    <head>
+        <meta charset='utf-8'>
+        <title>Calendar</title>
+        <link rel='stylesheet' href='resources/styles/main.css'>
+    </head>
+    <body>
+        <div class='container'>
+            <div class='calendar'>
+                <div class='date-header'>
+                    <span id='prev' class='time-skip'>prev</span>
+                    <div class='year-month'>
+                        <span class='month'></span>
+                        <span class='year'></span>
+                    </div>
+                    <span id='next' class='time-skip'>next</span>
+                </div>
+                <table class='days-body'>
+                    <thead>
+                        <tr class='days-row'>
+                            <th>Sun</th>
+                            <th>Mon</th>
+                            <th>Tue</th>
+                            <th>Wed</th>
+                            <th>Thu</th>
+                            <th>Fri</th>
+                            <th>Sat</th>
+                        </tr>
+                    </thead>
+                    <tbody class='calendar-days'></tbody>
+                </table>
+                <form class='select-date'>
+                    <label for='month'>Go To: </label>
+                    <select name='month' id='month'>
+                        <option value=0>Jan</option>
+                        <option value=1>Feb</option>
+                        <option value=2>Mar</option>
+                        <option value=3>Apr</option>
+                        <option value=4>May</option>
+                        <option value=5>Jun</option>
+                        <option value=6>Jul</option>
+                        <option value=7>Aug</option>
+                        <option value=8>Sep</option>
+                        <option value=9>Oct</option>
+                        <option value=10>Nov</option>
+                        <option value=11>Dec</option>
+                    </select>
+                    <input type='number' min='1' id='year'>
+                </form>
+            </div>
+            <div class='event-container'>
+                <div class='events visible'>
+                    <span class='no-Events event-message'>There are no events today</span>
+                    <button class='show-event-form rotate'>Add new event</button>
+                </div>
+                <form class='new-event-form hidden'>
+                    <legend>Submit New Event</legend>
+                    <input id='new-event-desc' type='text' name='desc' placeholder='desc'>
+                    <input type='submit' class='submit-event rotate' value='submit'>
+                </form>
+            </div>
+        </div>
+        <script type='text/javascript' src='resources/js/calendar.js' async></script>
+    </body>
 
 <script src="{% static 'assets/js/cal.js' %}"></script>
 </html

@@ -15,6 +15,8 @@
 	<meta name="generator" content="Documenter v2.0 http://rxa.li/documenter">
 	<meta name="date" content="2013-05-30T00:00:00+02:00">
 	<link rel="stylesheet" href="{% static 'assets/css/documenter_style.css' %}" media="all">
+	<link rel="stylesheet" href="{% static 'assets/css/news.css' %}" media="all">
+	<link rel="stylesheet" href="{% static 'assets/css/list.css' %}" media="all">
 	<link type="text/css" rel="stylesheet" href="{% static 'assets/css/SyntaxHighlighter.css' %}"></link>
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,700,800' rel='stylesheet' type='text/css'>
 	<link href="{% static 'assets/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet">
@@ -32,26 +34,21 @@
 
 			{% comment %} <li><a class="current" href="{% url 'home' %}">Нүүр хуудас</a></li> {% endcomment %}
             <li><a href="{% url 'news' %}">Нүүр хуудас</a></li>
-			<li><a href="{% url 'burtguuleh' %}">Бүртгэл</a></li>
+			{% comment %} <li><a href="{% url 'burtguuleh' %}">Бүртгэл</a></li> {% endcomment %}
 			<li><a href="{% url 'burtguuleh2' %}">Жагсаалт</a></li>
-			<li><a href="{% url 'login' %}">Нэвтрэх</a></li>
+			{% comment %} <li><a href="{% url 'login' %}">Нэвтрэх</a></li> {% endcomment %}
 			<li><a href="{% url 'upload' %}">Upload</a></li>
 			<li><a href="{% url 'calendar' %}">Календарь</a></li>
 			{% comment %} <li><a href="#sources_and_credits" title="Sources and Credits">Sources and Credits</a></li> {% endcomment %}
 		</ul>
-		<div id="documenter_copyright">GeoNews 2020<br></div>
+		<div id="documenter_copyright" >GeoNews 2020<br></div>
 	</div>
 
     <div class="container" id="documenter_content">
-        <section id="documenter_cover">
-            {% block content%}
 
-            {%endblock%}
-        </section>
-
-    <section id="sources_and_credits">
-
-        </div>
+		{% block content%}
+		{%endblock%}
+    </div>
         {% comment %} <script language="javascript" src="assets/js/shCore.js"></script>
         <script language="javascript" src="assets/js/shBrushCss.js"></script>
         <script language="javascript" src="assets/js/shBrushXml.js"></script>

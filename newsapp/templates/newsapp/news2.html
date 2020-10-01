@@ -1,13 +1,15 @@
 
 {% extends 'newsapp/base.html' %}
-
+    <div class="news_description">
 	{% block content %}
         {% for News2 in Newss2 %}
-            {{News2.name}}
-            {{News2.date_created}}
+            <div class="news-title">
+            <h2>{{News2.name}}</h2>
+            </div>
+            <img class="imges" width="360px" src="{{News2.image.url}}">
             {{News.more}}
-            <img width="360px" src="{{News2.image.url}}">
             {{News2.detailed | safe}}
+            {{News2.date_created}}
         {% endfor %}
-
+    </div>
 	{% endblock%}

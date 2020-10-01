@@ -1,0 +1,13 @@
+.table{
+    margin: 100px;
+    text-align:left;
+    margin-left: -300px;
+}
+.table th{
+    border:1px solid black;
+    width: 80px;
+}
+#documenter_content table th, #documenter_content table td {
+    padding: 10px;
+    text-align: left;
+}

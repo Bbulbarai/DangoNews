@@ -2,7 +2,6 @@
 
 	{% block content %}
      <h1>Арга хэмжээ</h1>
-
          <form method="POST">
             {% csrf_token %}
             {{ form }}
@@ -22,9 +21,3 @@
 			{{ example_form.my_date_field }}
 		</div> {% endcomment %}
     {% endblock%}
-
-
-
-
-
-

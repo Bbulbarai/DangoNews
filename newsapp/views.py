@@ -7,6 +7,8 @@ from django.http import HttpResponse
 # from .forms import UploadFileForm
 # from django.http import HttpResponseRedirect
 from django.contrib.auth import authenticate
+from django.core.signing import Signer
+import random
 
 # Create your views here.
 def index(request):
@@ -16,6 +18,7 @@ def home(request):
     return render(request, 'newsapp/news.html')
 
 def burtguuleh(request):
+    print("ta bvrtgvvleh")
     if request.method == 'POST':
         form = hereglegch_burtgeh(request.POST)
         if form.is_valid():
@@ -24,6 +27,7 @@ def burtguuleh(request):
     else:
         form = hereglegch_burtgeh()
     return render(request, 'newsapp/burtguuleh.html', {'form':form})
+ 
 
 def burtguuleh2(request):
     User_models = User_model.objects.all().order_by('-id')
@@ -41,6 +45,21 @@ def send(request, pk):
 
 #login hiih
 def torf(request, pk):
+    chars = 'qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM123456789'
+
+    for p in range(1):
+        passwor = ''
+        for c in range(8):
+            pwd = random.choice(chars)
+            if passwor != pwd:
+                passwor += pwd
+
+        for p in range(1):
+            nass = ''
+        for c in range(8):
+            pwd = random.choice(chars)
+            if nass != pwd:
+                nass += pwd
     obj = User_model.objects.filter(id=pk)
     if request.POST.get('name'):
         name = request.POST.get('name')
@@ -51,19 +70,20 @@ def torf(request, pk):
     else:
         password = '123'
     obj.update(
-        name = name,
-        password = password,
+        name = nass,
+        password = passwor,
         check = True
     )
+
     email = User_model.objects.filter(id=pk).first()
     send_mail(
             'django bulbar',
-            email.lastname + ' таны нэвтрэх нэр бол ' + name + '. таны нууц үг бол ' + password,
+            email.lastname + ' таны нэвтрэх нэр: ' + nass + '  таны нууц үг: ' + passwor,
             'bbulbarai3@gmail.com',
             [email.email],
             fail_silently=False)
     # print(id)
-    return render(request, 'newsapp/home.html')
+    return render(request, 'newsapp/news.html')
 
 def news(request):
     Newss = News.objects.order_by('-id').filter
@@ -85,7 +105,7 @@ def login(request):
             return redirect('upload')
         else:
             return redirect('login')
-    return render(request, 'login.html', {'form2':'form2'})
+    # return render(request, 'login.html', {'form2':'form2'})
     return render(request, 'newsapp/login.html', {'form2':'form2'})
 
 def upload(request):
